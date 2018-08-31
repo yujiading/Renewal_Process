@@ -10,3 +10,8 @@ Traceback (most recent call last):
     raise IOError("%s not found." % path)
 OSError: results/result_power12.csv not found.
 2018-08-30 20:36:49,906 - __main__ - INFO - train_time 7673.13s,num_sample 102, KstestResult(statistic=0.08487619033526705, pvalue=0.4350670468236626)
+2018-08-30 23:18:40,100 - __main__ - INFO - train_time 8803.59s,num_sample 204, KstestResult(statistic=0.04150380378714835, pvalue=0.8736794635918769)
+2018-08-31 01:39:43,081 - __main__ - INFO - train_time 8462.96s,num_sample 306, KstestResult(statistic=0.062596456004481, pvalue=0.1743002738024182)
+2018-08-31 04:07:37,164 - __main__ - INFO - train_time 8874.07s,num_sample 408, KstestResult(statistic=0.06586442986069013, pvalue=0.055453737166744066)
+2018-08-31 06:24:14,588 - __main__ - INFO - train_time 8197.42s,num_sample 510, KstestResult(statistic=0.06390364554696465, pvalue=0.029693739182089285)
+2018-08-31 08:30:51,217 - __main__ - INFO - train_time 7596.61s,num_sample 612, KstestResult(statistic=0.046256586723435245, pvalue=0.14128753105434533)
