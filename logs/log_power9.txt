@@ -1,0 +1,41 @@
+2018-08-28 23:36:24,645 - __main__ - WARNING - File not found, ignoring old results
+Traceback (most recent call last):
+  File "C:/Users/Ryan/PycharmProjects/simulate_renew_process/driver.py", line 39, in load_old_results
+    old_results = np.loadtxt(file_path)
+  File "C:\Program Files\Python37\lib\site-packages\numpy\lib\npyio.py", line 926, in loadtxt
+    fh = np.lib._datasource.open(fname, 'rt', encoding=encoding)
+  File "C:\Program Files\Python37\lib\site-packages\numpy\lib\_datasource.py", line 262, in open
+    return ds.open(path, mode, encoding=encoding, newline=newline)
+  File "C:\Program Files\Python37\lib\site-packages\numpy\lib\_datasource.py", line 618, in open
+    raise IOError("%s not found." % path)
+OSError: results/result_power9.csv not found.
+2018-08-28 23:36:24,646 - __main__ - INFO - train_time 10.98s,num_sample 102, KstestResult(statistic=0.07967005163592988, pvalue=0.5200326541205016)
+2018-08-28 23:36:34,138 - __main__ - INFO - train_time 9.48s,num_sample 204, KstestResult(statistic=0.051197072764610885, pvalue=0.6637338301977049)
+2018-08-28 23:36:43,914 - __main__ - INFO - train_time 9.77s,num_sample 306, KstestResult(statistic=0.033223216555460566, pvalue=0.8881919529948964)
+2018-08-28 23:36:53,716 - __main__ - INFO - train_time 9.79s,num_sample 408, KstestResult(statistic=0.055976229087684404, pvalue=0.14936108630914346)
+2018-08-28 23:37:03,541 - __main__ - INFO - train_time 9.81s,num_sample 510, KstestResult(statistic=0.05561730860344344, pvalue=0.08209282845618149)
+2018-08-28 23:37:12,479 - __main__ - INFO - train_time 8.92s,num_sample 612, KstestResult(statistic=0.03928774598996648, pvalue=0.2945545157490477)
+2018-08-28 23:37:21,854 - __main__ - INFO - train_time 9.36s,num_sample 714, KstestResult(statistic=0.04351294735574046, pvalue=0.13004014539528774)
+2018-08-28 23:37:31,590 - __main__ - INFO - train_time 9.72s,num_sample 816, KstestResult(statistic=0.03694416753563401, pvalue=0.210340305502414)
+2018-08-28 23:37:40,806 - __main__ - INFO - train_time 9.20s,num_sample 918, KstestResult(statistic=0.03495396820852603, pvalue=0.20733585389103637)
+2018-08-28 23:37:49,816 - __main__ - INFO - train_time 8.99s,num_sample 1020, KstestResult(statistic=0.03888807028450153, pvalue=0.08908112656475042)
+2018-08-28 23:38:37,565 - __main__ - INFO - train_time 10.64s,num_sample 1122, KstestResult(statistic=0.03648165317220209, pvalue=0.09846660059919055)
+2018-08-28 23:38:46,946 - __main__ - INFO - train_time 9.36s,num_sample 1224, KstestResult(statistic=0.0380179733581521, pvalue=0.05664461139969568)
+2018-08-28 23:38:56,505 - __main__ - INFO - train_time 9.53s,num_sample 1326, KstestResult(statistic=0.03525276471059052, pvalue=0.07233027064904185)
+2018-08-28 23:39:06,119 - __main__ - INFO - train_time 9.59s,num_sample 1428, KstestResult(statistic=0.04128594721436124, pvalue=0.014941497627623201)
+2018-08-28 23:39:15,303 - __main__ - INFO - train_time 9.16s,num_sample 1530, KstestResult(statistic=0.03867156812939393, pvalue=0.02004649618829757)
+2018-08-28 23:39:24,849 - __main__ - INFO - train_time 9.51s,num_sample 1632, KstestResult(statistic=0.04189869231240051, pvalue=0.006306284073836377)
+2018-08-28 23:39:33,798 - __main__ - INFO - train_time 8.92s,num_sample 1734, KstestResult(statistic=0.04128594721436124, pvalue=0.0052623330255126)
+2018-08-28 23:39:42,458 - __main__ - INFO - train_time 8.63s,num_sample 1836, KstestResult(statistic=0.03747331104878393, pvalue=0.011229256088058692)
+2018-08-28 23:39:51,018 - __main__ - INFO - train_time 8.53s,num_sample 1938, KstestResult(statistic=0.03150932931442929, pvalue=0.04173096748916749)
+2018-08-28 23:40:00,014 - __main__ - INFO - train_time 8.97s,num_sample 2040, KstestResult(statistic=0.028593952637442743, pvalue=0.0698065289986547)
+2018-08-28 23:40:17,915 - __main__ - INFO - train_time 9.72s,num_sample 2142, KstestResult(statistic=0.029691058146312954, pvalue=0.044887408122973316)
+2018-08-28 23:40:26,268 - __main__ - INFO - train_time 8.31s,num_sample 2244, KstestResult(statistic=0.028705879460228845, pvalue=0.04858013100358627)
+2018-08-28 23:40:35,291 - __main__ - INFO - train_time 8.98s,num_sample 2346, KstestResult(statistic=0.024720149327537688, pvalue=0.1136932629912319)
+2018-08-28 23:40:43,882 - __main__ - INFO - train_time 8.55s,num_sample 2448, KstestResult(statistic=0.025164167514522662, pvalue=0.09006133690860373)
+2018-08-28 23:40:52,964 - __main__ - INFO - train_time 9.05s,num_sample 2550, KstestResult(statistic=0.024004036795568395, pvalue=0.10586511486395898)
+2018-08-28 23:41:01,831 - __main__ - INFO - train_time 8.82s,num_sample 2652, KstestResult(statistic=0.026199730696754964, pvalue=0.052461601244804576)
+2018-08-28 23:41:10,511 - __main__ - INFO - train_time 8.63s,num_sample 2754, KstestResult(statistic=0.027163364013329416, pvalue=0.03435778766441483)
+2018-08-28 23:41:19,651 - __main__ - INFO - train_time 9.10s,num_sample 2856, KstestResult(statistic=0.026307466098608012, pvalue=0.03838698968825594)
+2018-08-28 23:41:28,422 - __main__ - INFO - train_time 8.73s,num_sample 2958, KstestResult(statistic=0.02855319197516548, pvalue=0.016081623598132998)
+2018-08-28 23:41:37,203 - __main__ - INFO - train_time 8.73s,num_sample 3060, KstestResult(statistic=0.02676502172263373, pvalue=0.024946617091082028)

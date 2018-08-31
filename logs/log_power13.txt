@@ -1,0 +1,12 @@
+2018-08-29 17:07:07,645 - __main__ - WARNING - File not found, ignoring old results
+Traceback (most recent call last):
+  File "C:/Users/Ryan/PycharmProjects/simulate_renew_process/driver.py", line 42, in load_old_results
+    except:
+  File "C:\Program Files\Python37\lib\site-packages\numpy\lib\npyio.py", line 926, in loadtxt
+    fh = np.lib._datasource.open(fname, 'rt', encoding=encoding)
+  File "C:\Program Files\Python37\lib\site-packages\numpy\lib\_datasource.py", line 262, in open
+    return ds.open(path, mode, encoding=encoding, newline=newline)
+  File "C:\Program Files\Python37\lib\site-packages\numpy\lib\_datasource.py", line 618, in open
+    raise IOError("%s not found." % path)
+OSError: results/result_power13.csv not found.
+2018-08-29 17:07:07,688 - __main__ - INFO - train_time 62501.97s,num_sample 102, KstestResult(statistic=0.06775065307111361, pvalue=0.7502611455308548)
