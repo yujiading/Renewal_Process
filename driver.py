@@ -16,7 +16,7 @@ class Driver:
         # self.is_train = True
         self.power = 11
         self.n_iterations = 1000
-        self.iteration_size = 100
+        self.iteration_size = 50
         self.n_cpu = 6
         # ---------------- #
 
@@ -78,6 +78,7 @@ class Driver:
             old_results = self.load_old_results(self.result_file_path)
             simulated_arr = np.asarray(simulated_data_list)
             simulated_arr = np.concatenate((old_results, simulated_arr))
+            np.savetxt(self.result_file_path, simulated_arr, delimiter=',')
         else:
             simulated_arr = self.load_old_results(self.result_file_path)
 
@@ -86,7 +87,6 @@ class Driver:
             train_time=train_time, num_sample=len(simulated_arr), ks_result=ks_result
         ))
 
-        np.savetxt(self.result_file_path, simulated_arr, delimiter=',')
         return simulated_arr
 
     def run(self):
