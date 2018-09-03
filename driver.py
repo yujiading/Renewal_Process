@@ -12,9 +12,9 @@ from simulate_minibatch_binary_search import driver_multi_process
 class Driver:
     def __init__(self):
         # ---- Modify ---- #
-        # self.is_train = False
-        self.is_train = True
-        self.power = 12
+        self.is_train = False
+        # self.is_train = True
+        self.power = 11
         self.n_iterations = 1000
         self.iteration_size = 100
         self.n_cpu = 6

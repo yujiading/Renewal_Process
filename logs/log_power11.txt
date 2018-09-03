@@ -1,9 +1,4 @@
-2018-08-29 19:40:10,729 - __main__ - WARNING - File not found, ignoring old results
-Traceback (most recent call last):
-  File "C:/Users/Ryan/PycharmProjects/simulate_renew_process/driver.py", line 41, in load_old_results
-    old_results = np.loadtxt(file_path)
-  File "C:\Program Files\Python37\lib\site-packages\numpy\lib\npyio.py", line 926, in loadtxt
-    fh = np.lib._datasource.open(fname, 'rt', encoding=encoding)
+x    fh = np.lib._datasource.open(fname, 'rt', encoding=encoding)
   File "C:\Program Files\Python37\lib\site-packages\numpy\lib\_datasource.py", line 262, in open
     return ds.open(path, mode, encoding=encoding, newline=newline)
   File "C:\Program Files\Python37\lib\site-packages\numpy\lib\_datasource.py", line 618, in open
