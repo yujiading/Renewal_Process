@@ -1,14 +1,13 @@
 import logging
+import os
 import time
 from multiprocessing import Pool
-import random
+
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy import stats
 
 from simulate_minibatch_binary_search import driver_multi_process
-
-from multiprocessing.managers import BaseManager
 
 
 class Driver:
@@ -17,9 +16,9 @@ class Driver:
         # self.is_train = False
         self.is_train = True
         self.power = 7
-        self.n_iterations = 10
+        self.n_iterations = 1000
         self.iteration_size = 50
-        self.n_cpu = 1
+        self.n_cpu = 4
         # ---------------- #
 
         log_file_path = "logs/log_power{power}.txt".format(power=self.power)
@@ -92,8 +91,13 @@ class Driver:
 
         return simulated_arr
 
+    def seeder(self):
+        seed_id = os.getpid()
+        np.random.seed(seed_id)
+        print("seed", seed_id)
+
     def run(self):
-        process_pool = Pool(self.n_cpu)
+        process_pool = Pool(self.n_cpu, initializer=self.seeder)
 
         for _ in range(self.n_iterations):
             iteration_results = self.train_one_iteration(process_pool=process_pool)
