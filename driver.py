@@ -8,16 +8,18 @@ from scipy import stats
 
 from simulate_minibatch_binary_search import driver_multi_process
 
+from multiprocessing.managers import BaseManager
+
 
 class Driver:
     def __init__(self):
         # ---- Modify ---- #
         # self.is_train = False
         self.is_train = True
-        self.power =7
-        self.n_iterations = 1000
+        self.power = 7
+        self.n_iterations = 10
         self.iteration_size = 50
-        self.n_cpu = 2
+        self.n_cpu = 1
         # ---------------- #
 
         log_file_path = "logs/log_power{power}.txt".format(power=self.power)
@@ -73,7 +75,8 @@ class Driver:
 
         if self.is_train:
             start_time = time.time()
-            simulated_data_list = driver_multi_process(t=t, n=self.iteration_size, process_pool=process_pool)
+            simulated_data_list = driver_multi_process(t=t, n=self.iteration_size,
+                                                       process_pool=process_pool)
             train_time = time.time() - start_time
             old_results = self.load_old_results(self.result_file_path)
             simulated_arr = np.asarray(simulated_data_list)

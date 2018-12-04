@@ -14,6 +14,19 @@ def get_uniform():
     return np.random.uniform()
 
 
+def rolling_random_array(random_array, remove_count, alpha):
+    """
+
+    :param random_array: array of random number
+    :param remove_count: first remove_count elements should be removed, and new random numbers should be appended
+    :param alpha:
+    :return:
+    """
+    remaining_items = random_array[remove_count:]
+    added_elements = get_mini_batch_x(mini_batch_size=remove_count, alpha=alpha)
+    return np.concatenate([remaining_items, added_elements])
+
+
 def binary_search(xs, sum_cur, t):
     """
 
@@ -40,44 +53,53 @@ def binary_search(xs, sum_cur, t):
     return mid, sum_cur
 
 
-def get_mini_batch_x(mini_batch_size):
+def get_mini_batch_x(mini_batch_size, alpha):
     ys = np.random.uniform(size=mini_batch_size)
-    xs = ys / (1 - ys)
+    xs = (1 / ys - 1) ** (1 / alpha)
     return xs
 
 
+xs_from_previous_run = None
+
+
 def simulate_once(t):
+    global xs_from_previous_run
     mini_batch_size = 5000
     sum_cur = 0
     n = 0
+    alpha = 0.9
+    xs = None
 
     while sum_cur <= t:
-        # xs = get_mini_batch_x(mini_batch_size=mini_batch_size)
-        ys = np.random.uniform(size=mini_batch_size)
-
-        alpha = 0.9
-        # xs = (ys / (1 - ys)) ** (1 / alpha)
-        xs = (1 / ys-1) ** (1 / alpha)
+        if xs_from_previous_run is not None:
+            xs = xs_from_previous_run
+            xs_from_previous_run = None
+        else:
+            xs = get_mini_batch_x(mini_batch_size=mini_batch_size, alpha=alpha)
         sum_next = sum_cur + np.sum(xs)
         if sum_next > t:
             break
         sum_cur = sum_next
-        n += len(ys)
+        n += len(xs)
 
     idx, sum_incl_idx = binary_search(xs, sum_cur, t)
     x = xs[idx + 1]
 
     # numerator = t - sum_incl_idx
-    numerator = t - (sum_incl_idx+x)+x
+    numerator = t - (sum_incl_idx + x) + x
     denominator = x
-    ratio = (numerator / denominator)**alpha
+    ratio = (numerator / denominator) ** alpha
 
     n += idx + 1
     # print("{:,}".format(n), sum_cur)
+    remove_count = idx + 2
+    xs_from_previous_run = rolling_random_array(
+        random_array=xs,
+        remove_count=remove_count,
+        alpha=alpha
+    )
+
     return ratio
-
-
-# print(simulate_once(5))
 
 
 def mini_batch(i, n, t):
@@ -99,7 +121,8 @@ def driver_multi_process(process_pool, t, n):
     mini_batch_count = 6
     mini_batch_map_items = list(range(mini_batch_count))
     mini_batch_n = round(n / 6)
-    nested_result = process_pool.map(partial(mini_batch, n=mini_batch_n, t=t), mini_batch_map_items)
+    nested_result = process_pool.map(partial(mini_batch, n=mini_batch_n, t=t),
+                                     mini_batch_map_items)
     simulated_data = []
     for result in nested_result:
         simulated_data.extend(result)
