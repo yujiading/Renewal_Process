@@ -1,7 +1,7 @@
 import logging
 import time
 from multiprocessing import Pool
-
+import random
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy import stats
@@ -12,12 +12,12 @@ from simulate_minibatch_binary_search import driver_multi_process
 class Driver:
     def __init__(self):
         # ---- Modify ---- #
-        self.is_train = False
-        # self.is_train = True
-        self.power = 11
+        # self.is_train = False
+        self.is_train = True
+        self.power =7
         self.n_iterations = 1000
         self.iteration_size = 50
-        self.n_cpu = 6
+        self.n_cpu = 2
         # ---------------- #
 
         log_file_path = "logs/log_power{power}.txt".format(power=self.power)
@@ -100,5 +100,6 @@ class Driver:
 
 
 if __name__ == '__main__':
+    np.random.seed(0)
     driver = Driver()
     driver.run()

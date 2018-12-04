@@ -1,5 +1,4 @@
 import math
-
 import numpy as np
 from scipy import stats
 import time
@@ -55,7 +54,10 @@ def simulate_once(t):
     while sum_cur <= t:
         # xs = get_mini_batch_x(mini_batch_size=mini_batch_size)
         ys = np.random.uniform(size=mini_batch_size)
-        xs = ys / (1 - ys)
+
+        alpha = 0.9
+        # xs = (ys / (1 - ys)) ** (1 / alpha)
+        xs = (1 / ys-1) ** (1 / alpha)
         sum_next = sum_cur + np.sum(xs)
         if sum_next > t:
             break
@@ -65,9 +67,10 @@ def simulate_once(t):
     idx, sum_incl_idx = binary_search(xs, sum_cur, t)
     x = xs[idx + 1]
 
-    numerator = t - sum_incl_idx
+    # numerator = t - sum_incl_idx
+    numerator = t - (sum_incl_idx+x)+x
     denominator = x
-    ratio = numerator / denominator
+    ratio = (numerator / denominator)**alpha
 
     n += idx + 1
     # print("{:,}".format(n), sum_cur)
@@ -90,8 +93,6 @@ def driver_single_process(t, n):
     print(len(simulated_data), kstest)
     print("--- %s seconds ---" % (time.time() - start_time))
     return simulated_arr
-
-
 
 
 def driver_multi_process(process_pool, t, n):
